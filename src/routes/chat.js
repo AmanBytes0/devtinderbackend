@@ -15,7 +15,7 @@ chatRouter.get("/chat/:targetUserId", userAuth, async (req, res) => {
     });
     if (!chat) {
       chat = new Chat({
-        praticipants: [userId, targetUserId],
+        participants: [userId, targetUserId],
         messages: [],
       });
       await chat.save();
