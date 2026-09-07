@@ -32,7 +32,10 @@ paymentRouter.post("/payment/create", userAuth, async (req, res) => {
     });
 
     const savePayment = await payment.save();
-    res.json(savePayment);
+    res.status(200).json({
+      success: true,
+      payment: savePayment,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
